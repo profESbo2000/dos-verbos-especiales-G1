@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verbos Irregulares con Cambio Vocálico (e -> ie)</title>
+  <title>Verbos Especiales - TENER y VENIR</title>
   <style>
     :root {
       --table-bg: #2d4030;
@@ -103,11 +103,11 @@
       border: 4px solid #588157;
       border-radius: 20px;
       padding: 20px;
-      min-height: 550px;
+      min-height: 400px;
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
-      align-content: flex-start;
+      gap: 20px;
+      align-content: center;
       justify-content: center;
       box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
     }
@@ -116,12 +116,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
     }
 
     .card-container {
-      width: 120px;
-      height: 120px;
+      width: 130px;
+      height: 130px;
       perspective: 1000px;
       cursor: pointer;
     }
@@ -166,7 +166,7 @@
       background-color: #ffffff;
       color: var(--text-main);
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 1.1rem;
       border: 2px solid #cbd5e1;
     }
 
@@ -178,12 +178,12 @@
     }
 
     .card-back-icon {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 2px;
     }
 
     .card-back-text {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 800;
       color: #0f172a;
       text-transform: uppercase;
@@ -193,9 +193,9 @@
       background-color: #ff793f;
       color: #ffffff;
       border: none;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.2s;
@@ -283,7 +283,6 @@
     }
 
     .text-stem {
-      fill: #1f2937;
       font-family: 'Segoe UI', system-ui, sans-serif;
       font-weight: 900;
       font-size: 18px;
@@ -398,8 +397,8 @@
 </head>
 <body>
 
-  <h1>Verbos Especiales: Cambio Vocálico (e ➔ ie)</h1>
-  <div class="subtitle">Grupo 1: Verbos con cambio de raíz y primera persona irregular (-GO)</div>
+  <h1>Verbos Especiales: TENER y VENIR</h1>
+  <div class="subtitle">Grupo 1: Cambio vocálico (e ➔ ie) y primera persona irregular (-GO)</div>
 
   <!-- PESTAÑAS -->
   <div class="tabs-container">
@@ -417,7 +416,7 @@
         <div class="verb-header">
           <div class="selected-title" id="selectedVerbTitle">TENER</div>
           <div class="stem-info">Cambio vocálico: <strong style="color: #d97706;">E ➔ IE</strong> (excepto Nosotros / Vosotros)</div>
-          <div class="note-badge">⚠️ Excepción: Yo de cambio especial (-GO)</div>
+          <div class="note-badge">⚠️ Excepción: Persona YO marcada en morado (-GO)</div>
         </div>
 
         <div class="conjugation-grid" id="conjugationGrid"></div>
@@ -437,7 +436,7 @@
   </div>
 
   <script>
-    // 1. Datos de verbos (TENER y VENIR prioritarios al inicio)
+    // Únicamente verbos TENER y VENIR
     const verbos = [
       {
         verbo: "TENER",
@@ -464,62 +463,10 @@
           { pronombre: "Vosotros/as", raiz: "ven", terminacion: "-ís", especial: false },
           { pronombre: "Ellos / Ellas / Ustedes", raiz: "vien", terminacion: "-en", especial: false }
         ]
-      },
-      {
-        verbo: "QUERER",
-        ingles: "To want",
-        icono: "❤️",
-        conjugaciones: [
-          { pronombre: "Yo", raiz: "quier", terminacion: "-o", especial: false },
-          { pronombre: "Tú", raiz: "quier", terminacion: "-es", especial: false },
-          { pronombre: "Él / Ella / Usted", raiz: "quier", terminacion: "-e", especial: false },
-          { pronombre: "Nosotros/as", raiz: "quer", terminacion: "-emos", especial: false },
-          { pronombre: "Vosotros/as", raiz: "quer", terminacion: "-éis", especial: false },
-          { pronombre: "Ellos / Ellas / Ustedes", raiz: "quier", terminacion: "-en", especial: false }
-        ]
-      },
-      {
-        verbo: "ENTENDER",
-        ingles: "To understand",
-        icono: "💡",
-        conjugaciones: [
-          { pronombre: "Yo", raiz: "entiend", terminacion: "-o", especial: false },
-          { pronombre: "Tú", raiz: "entiend", terminacion: "-es", especial: false },
-          { pronombre: "Él / Ella / Usted", raiz: "entiend", terminacion: "-e", especial: false },
-          { pronombre: "Nosotros/as", raiz: "entend", terminacion: "-emos", especial: false },
-          { pronombre: "Vosotros/as", raiz: "entend", terminacion: "-éis", especial: false },
-          { pronombre: "Ellos / Ellas / Ustedes", raiz: "entiend", terminacion: "-en", especial: false }
-        ]
-      },
-      {
-        verbo: "PENSAR",
-        ingles: "To think",
-        icono: "🧠",
-        conjugaciones: [
-          { pronombre: "Yo", raiz: "piens", terminacion: "-o", especial: false },
-          { pronombre: "Tú", raiz: "piens", terminacion: "-as", especial: false },
-          { pronombre: "Él / Ella / Usted", raiz: "piens", terminacion: "-a", especial: false },
-          { pronombre: "Nosotros/as", raiz: "pens", terminacion: "-amos", especial: false },
-          { pronombre: "Vosotros/as", raiz: "pens", terminacion: "-áis", especial: false },
-          { pronombre: "Ellos / Ellas / Ustedes", raiz: "piens", terminacion: "-an", especial: false }
-        ]
-      },
-      {
-        verbo: "PREFERIR",
-        ingles: "To prefer",
-        icono: "⭐",
-        conjugaciones: [
-          { pronombre: "Yo", raiz: "prefier", terminacion: "-o", especial: false },
-          { pronombre: "Tú", raiz: "prefier", terminacion: "-es", especial: false },
-          { pronombre: "Él / Ella / Usted", raiz: "prefier", terminacion: "-e", especial: false },
-          { pronombre: "Nosotros/as", raiz: "prefer", terminacion: "-imos", especial: false },
-          { pronombre: "Vosotros/as", raiz: "prefer", terminacion: "-ís", especial: false },
-          { pronombre: "Ellos / Ellas / Ustedes", raiz: "prefier", terminacion: "-en", especial: false }
-        ]
       }
     ];
 
-    // 2. Datos de expresiones con TENER
+    // Expresiones útiles con TENER
     const expresiones = [
       { titulo: "Tener frío", ingles: "To be cold", icono: "🥶", ejemplo: "Ella tiene frío en el invierno." },
       { titulo: "Tener calor", ingles: "To be hot", icono: "🥵", ejemplo: "Nosotros tenemos calor en el verano." },
@@ -544,7 +491,7 @@
       btn.classList.add('active');
     }
 
-    // Renderizar la mesa de papeles / tarjetas
+    // Renderizar las tarjetas en la mesa
     function renderDesk() {
       const desk = document.getElementById('deskArea');
       desk.innerHTML = '';
@@ -568,7 +515,7 @@
           </div>
         `;
 
-        // Giro 3D con click
+        // Giro 3D al hacer clic
         container.onclick = () => {
           container.classList.toggle('flipped');
         };
@@ -600,7 +547,7 @@
       selectedVerb.conjugaciones.forEach((item, i) => {
         const fullWord = item.raiz + item.terminacion.replace('-', '');
 
-        // Color de la primera pieza según si es una excepción (-GO) o normal
+        // Resaltado diferencial para la excepción de la persona "Yo"
         const stemFill = item.especial ? "#a855f7" : "#facc15";
         const stemStroke = item.especial ? "#7e22ce" : "#eab308";
 
@@ -627,7 +574,7 @@
                     fill="${stemFill}" stroke="${stemStroke}" stroke-width="2"/>
               <text x="60" y="24" class="text-stem" fill="${item.especial ? '#ffffff' : '#1f2937'}">${item.raiz}-</text>
 
-              <!-- Pieza de la Terminación (se revela al hacer clic) -->
+              <!-- Pieza de la Terminación -->
               <path d="M 132,4 L 230,4 
                        A 4,4 0 0,1 234,8 
                        L 234,40 
@@ -648,13 +595,13 @@
       });
     }
 
-    // Mostrar u ocultar la terminación del rompecabezas
+    // Revelar u ocultar la terminación
     function togglePiece(index) {
       const endingText = document.getElementById(`ending-${index}`);
       if (endingText) endingText.classList.toggle('text-hidden');
     }
 
-    // Sintetizador de voz
+    // Audio de pronunciación
     function speak(text) {
       if ('speechSynthesis' in window) {
         const utterance = new SpeechSynthesisUtterance(text);
@@ -682,7 +629,7 @@
       });
     }
 
-    // Inicializar
+    // Inicialización
     renderDesk();
     updateWorkspace();
     renderExpressions();
